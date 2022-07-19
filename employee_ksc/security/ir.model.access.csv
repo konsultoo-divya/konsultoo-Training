@@ -1,0 +1,5 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+res_state_ksc.access_res_state_ksc,access_res_state_ksc,res_state_ksc.model_res_state_ksc,base.group_user,1,1,1,1
+res_city_ksc.access_res_city_ksc,access_res_city_ksc,res_city_ksc.model_res_city_ksc,base.group_user,1,1,1,1
+
+employee_ksc.access_employee_ksc,access_employee_ksc,employee_ksc.model_employee_ksc,base.group_user,1,1,1,1

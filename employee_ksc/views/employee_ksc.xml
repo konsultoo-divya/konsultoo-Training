@@ -1,0 +1,78 @@
+<odoo>
+    <record id="employee_ksc_view_tree" model="ir.ui.view">
+        <field name="name">employee ksc tree</field>
+        <field name="model">employee.ksc</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name_of_the_employee"/>
+                <field name="department_name_of_the_employee"/>
+                <field name="job_position_of_the_employee"/>
+                <field name="salary"/>
+                <field name="date"/>
+                <field name="gender"/>
+                <field name="job_type"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="employee_ksc_view_form" model="ir.ui.view">
+        <field name="name">employee ksc form</field>
+        <field name="model">employee.ksc</field>
+        <field name="arch" type="xml">
+            <form string="Employee Form">
+                <sheet>
+                    <group string="Employee Data">
+                        <group>
+                            <field name="name_of_the_employee"/>
+                            <field name="department_name_of_the_employee"/>
+                            <field name="job_position_of_the_employee"/>
+                            <field name="salary"/>
+                            <field name="date"/>
+                            <field name="gender"/>
+                            <field name="job_type"/>
+                        </group>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="employee_ksc_view_search" model="ir.ui.view">
+        <field name="name">employee ksc search</field>
+        <field name="model">employee.ksc</field>
+        <field name="arch" type="xml">
+            <search>
+                <filter string="Akash" name="name_of_the_employee" domain="[('name_of_the_employee', '=', 'Akash')]"/>
+                <filter string="Manager" name="job_position_of_the_employee" domain="[('job_position_of_the_employee', '=', 'Manager')]"/>
+                <filter string="developer" name="department_name_of_the_employee" domain="[('department_name_of_the_employee', '=', 'developer')]"/>
+                <filter string="female" name="gender" domain="[('gender', '=', 'female')]"/>
+                <filter string="Permanent" name="job_type" domain="[('job_type', '=', 'permanent')]"/>
+            </search>
+        </field>
+    </record>
+
+
+    <record id='employee_ksc_action' model='ir.actions.act_window'>
+        <field name="name">employee ksc Action</field>
+        <field name="res_model">employee.ksc</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <menuitem name="Employee Ksc"
+              id="employee_ksc_menu"
+              groups="base.group_user"
+              sequence="8"/>
+
+    <menuitem name="Employee"
+              id="employee_data_menu"
+              parent="employee_ksc_menu"
+              groups="base.group_user"/>
+
+    <menuitem name="Employee Data"
+              id="employee_menu"
+              parent="employee_data_menu"
+              action="employee_ksc_action"
+              sequence="1"
+              groups="base.group_user"/>
+
+</odoo>
