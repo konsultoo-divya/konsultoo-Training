@@ -1,16 +1,20 @@
 # -*- coding: utf-8 -*-
 {
-    'name': "Employee Ksc",
-    'summary': "The data of employee",
+    'name': "res_partner_demo_ksc",
+    'summary': "The data of Customers",
     'description': """This models is all about understand the active attributes """,
     'author': "konsultoo",
     'website': "http://www.konsultoo.com",
-    'category': 'Employees',
-    'version': '1.6',
+    'category': 'Uncategorized',
+    'version': '1.1',
     'depends': ['base'],
     'data': [
         'security/ir.model.access.csv',
-        'views/employee_ksc.xml',
+        'views/res_partner_demo.xml',
+        'data/res_partner_demo_ksc.xml',
+    ],
+    'demo': [
+        'data/res_partner_demo_ksc.xml',
     ],
     'application': True,
     'installable': True,

@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <record id="form_view_stock_inventory_ksc" model="ir.ui.view">
+        <field name="name">form.view.stock.inventory.ksc</field>
+        <field name="model">stock.inventory.ksc</field>
+        <field name="arch" type="xml">
+            <form>
+                <header>
+                    <field name="state" widget="statusbar" readonly="1"/>
+                    <button name="action_start_inventory" type="object" string="START INVENTORY"
+                            attrs="{'invisible': [('state', '!=', 'draft')]}"/>
+                </header>
+                <sheet>
+                    <group>
+                        <field name="name"/>
+                        <field name="state"/>
+                        <field name="location_id"/>
+                        <field name="inventory_date"/>
+                        <field name="inventory_line_ids"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+    <record id="tree_view_stock_inventory_ksc" model="ir.ui.view">
+        <field name="name">tree.view.stock.inventory.ksc</field>
+        <field name="model">stock.inventory.ksc</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name"/>
+                <field name="state"/>
+                <field name="location_id"/>
+                <field name="inventory_date"/>
+                <field name="inventory_line_ids"/>
+            </tree>
+        </field>
+    </record>
+    <record id="search_view_stock_inventory_ksc" model="ir.ui.view">
+        <field name="name">search.view.stock.inventory.ksc</field>
+        <field name="model">stock.inventory.ksc</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="name"/>
+                <field name="state"/>
+                <field name="location_id"/>
+                <field name="inventory_date"/>
+                <field name="inventory_line_ids"/>
+            </search>
+        </field>
+    </record>
+    <record id="action_stock_inventory_ksc" model="ir.actions.act_window">
+        <field name="name">Stock Inventory Ksc</field>
+        <field name="res_model">stock.inventory.ksc</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="view_mode">tree,form</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">Empty!!!</p>
+        </field>
+    </record>
+    <menuitem id="menu_sale_sales_ksc_inventory"
+              parent="menu_CRM"
+              name="Sale Inventory"/>
+    <menuitem id="ksc_stock_inventory_data_menu"
+              parent="menu_sale_sales_ksc_inventory"
+              action="action_stock_inventory_ksc"
+              name="Stock Inventory"/>
+</odoo>

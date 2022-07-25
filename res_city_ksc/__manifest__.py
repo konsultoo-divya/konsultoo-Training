@@ -1,17 +1,18 @@
 # -*- coding: utf-8 -*-
 {
-    'name': "Employee Ksc",
-    'summary': "The data of employee",
+    'name': "res_city_ksc",
+    'summary': "The data of city",
     'description': """This models is all about understand the active attributes """,
     'author': "konsultoo",
     'website': "http://www.konsultoo.com",
-    'category': 'Employees',
-    'version': '1.6',
+    'category': 'Uncategorized',
+    'version': '1.4',
     'depends': ['base'],
     'data': [
         'security/ir.model.access.csv',
-        'views/employee_ksc.xml',
+        'views/res_city_ksc.xml',
     ],
+    'demo': [],
     'application': True,
     'installable': True,
     'auto-install': False,

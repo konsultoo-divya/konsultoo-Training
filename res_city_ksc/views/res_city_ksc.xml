@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <record id="res_city_ksc_view_tree" model="ir.ui.view">
+        <field name="name">Res City Ksc List</field>
+        <field name="model">res.city.ksc</field>
+        <field name="arch" type="xml">
+            <tree editable="bottom">
+                <field name="city_name"/>
+                <field name="state_name"/>
+                <field name="active"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="res_city_ksc_search" model="ir.ui.view">
+        <field name="name">Res City Ksc Search</field>
+        <field name="model">res.city.ksc</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="city_name"/>
+                <field name="state_name"/>
+                <filter name="active" string="Active" domain="[('active', '=', 'True')]"/>
+            </search>
+        </field>
+    </record>
+
+
+    <record id='res_city_ksc_action' model='ir.actions.act_window'>
+        <field name="name">Res City Ksc Action</field>
+        <field name="res_model">res.city.ksc</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <menuitem name="Res City Ksc"
+              id="res_city_ksc_menu"
+              groups="base.group_user"
+              sequence="9"/>
+
+    <menuitem name="City"
+              id="city_data_menu"
+              parent="res_city_ksc_menu"
+              groups="base.group_user"/>
+
+    <menuitem name="Localization"
+              id="localization_menu"
+              parent="city_data_menu"
+              action="res_city_ksc_action"
+              sequence="1"
+              groups="base.group_user"/>
+
+</odoo>

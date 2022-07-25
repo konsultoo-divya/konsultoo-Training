@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <record id="ksc_product_category_form" model="ir.ui.view">
+        <field name="name">product.category.ksc.form</field>
+        <field name="model">product.category.ksc</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <field name="name"/>
+                        <field name="parent_id"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+    <record id="ksc_product_category_tree" model="ir.ui.view">
+        <field name="name">product.category.ksc.tree</field>
+        <field name="model">product.category.ksc</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name"/>
+                <field name="parent_id"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="action_product_category_ksc" model="ir.actions.act_window">
+        <field name="name">Product Category Ksc</field>
+        <field name="res_model">product.category.ksc</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="view_mode">tree,form</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">Empty!!!</p>
+        </field>
+    </record>
+    <menuitem id="ksc_sale_menu"
+              name="Sale KSC"/>
+
+    <menuitem id="ksc_sale_category_menu"
+              parent="ksc_sale_menu"
+              name="Category"/>
+
+    <menuitem id="ksc_product_category_menu"
+              parent="ksc_sale_category_menu"
+              action="action_product_category_ksc"
+              name="Product Category"/>
+</odoo>

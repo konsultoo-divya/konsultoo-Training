@@ -1,0 +1,37 @@
+<odoo>
+    <record id="view_form_product_stock_update_ksc" model="ir.ui.view">
+        <field name="name">view.form.product.stock.update.ksc</field>
+        <field name="model">product.stock.update.ksc</field>
+        <field name="arch" type="xml">
+            <form string="product Stock Update">
+                <header>
+                    <button name="update_stock" string="Update Stock" type="object" class="btn-primary"/>
+                    <button special="cancel" string="Cancel" class="btn-primary"/>
+                </header>
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="location_id"/>
+                            <field name="current_stock"/>
+                        </group>
+                        <group>
+                            <field name="counted_stock"/>
+                            <field name="difference_qty"/>
+                        </group>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+    <record id="action_product_stock_update_ksc" model="ir.actions.act_window">
+        <field name="name">Product Stock Update</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="view_mode">form</field>
+        <field name="res_model">product.stock.update.ksc</field>
+        <field name="view_id" ref="sale_ksc.view_form_product_stock_update_ksc"/>
+        <field name="binding_model_id" ref="model_product_ksc"/>
+        <field name="binding_view_types">form</field>
+        <field name="binding_type">action</field>
+        <field name="target">new</field>
+    </record>
+</odoo>

@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <record id="res_city_ksc_view_tree_inherit" model="ir.ui.view">
+        <field name="name">res.city.tree.inherit</field>
+        <field name="model">res.city.ksc</field>
+        <field name="inherit_id" ref="res_city_ksc.res_city_ksc_view_tree"/>
+        <field name="arch" type="xml">
+            <field name="active" position="after" editable="bottom">
+                <field name="state_id"/>
+            </field>
+        </field>
+    </record>
+
+    <record id='res_city_ksc_inherit_action' model='ir.actions.act_window'>
+        <field name="name">Res City Ksc Inherit Action</field>
+        <field name="res_model">res.city.ksc</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <menuitem name="Res localization Ksc"
+              id="res_localization_country_ksc_menus"
+              groups="base.group_user"/>
+
+    <menuitem name="City Localization"
+              id="Res_City_localization_menu"
+              parent="res_localization_country_ksc_menus"
+              action="res_city_ksc_inherit_action"
+              sequence="10"
+              groups="base.group_user"/>
+</odoo>
+
+

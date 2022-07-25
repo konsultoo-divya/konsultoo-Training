@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <record id="form_view_stock_inventory_line_ksc" model="ir.ui.view">
+        <field name="name">form.view.stock.inventory.line.ksc</field>
+        <field name="model">stock.inventory.line.ksc</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <field name="product_id"/>
+                        <field name="available_qty"/>
+                        <field name="counted_product_qty"/>
+                        <field name="difference"/>
+                        <field name="stock_inventory_id"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+    <record id="tree_view_stock_inventory_line_ksc" model="ir.ui.view">
+        <field name="name">tree.view.stock.inventory.line.ksc</field>
+        <field name="model">stock.inventory.line.ksc</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="product_id"/>
+                <field name="available_qty"/>
+                <field name="counted_product_qty"/>
+                <field name="difference"/>
+                <field name="stock_inventory_id"/>
+            </tree>
+        </field>
+    </record>
+    <record id="search_view_stock_inventory_line_ksc" model="ir.ui.view">
+        <field name="name">search.view.stock.inventory.line.ksc</field>
+        <field name="model">stock.inventory.line.ksc</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="product_id"/>
+                <field name="available_qty"/>
+                <field name="counted_product_qty"/>
+                <field name="difference"/>
+                <field name="stock_inventory_id"/>
+            </search>
+        </field>
+    </record>
+    <record id="action_stock_inventory_line_ksc" model="ir.actions.act_window">
+        <field name="name">Stock Inventory Line Ksc</field>
+        <field name="res_model">stock.inventory.line.ksc</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="view_mode">tree,form</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">Empty!!!</p>
+        </field>
+    </record>
+    <menuitem id="menu_sale_ksc_inventory_line"
+              parent="menu_CRM"
+              name="Sale inventory line ksc"/>
+    <menuitem id="ksc_stock_inventory_data_menu"
+              parent="menu_sale_ksc_inventory_line"
+              action="action_stock_inventory_line_ksc"
+              name="Stock Inventory Line"/>
+</odoo>

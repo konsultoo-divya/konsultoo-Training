@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <record id="form_view_res_partner_ksc" model="ir.ui.view">
+        <field name="name">form.view.res.partner.ksc</field>
+        <field name="model">res.partner.ksc</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <field name="photo" widget="image" class="oe_avatar" options="{'preview_image': 'photo'}"/>
+                    <div class="oe_title">
+                        <h1>
+                            <field name="name" default_focus="1" placeholder="Name"/>
+                        </h1>
+                    </div>
+                    <field name="birthdate" string="Birth Date"/>
+                    <notebook>
+                        <page string="Address">
+                            <group>
+                                <field name="address_type"/>
+                                <div class="o_address_format">
+                                    <field name="street1" placeholder="Street 1"/>
+                                    <field name="street2" placeholder="Street 2"/>
+                                    <field name="state_id" placeholder="State"/>
+                                    <field name="city_id" placeholder="City"/>
+                                    <field name="zip_code" placeholder="Zip Code" class="o_address_zip"/>
+                                </div>
+                            </group>
+                        </page>
+                        <page string="Contact Details">
+                            <group>
+                                <field name="email"/>
+                                <field name="phone"/>
+                                <field name="mobile"/>
+                                <field name="website"/>
+                            </group>
+                        </page>
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+    <record id="tree_view_res_partner_ksc" model="ir.ui.view">
+        <field name="name">tree.view.res.partner.ksc</field>
+        <field name="model">res.partner.ksc</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name"/>
+                <field name="country_id"/>
+                <field name="state_id"/>
+                <field name="zip_code"/>
+                <field name="email"/>
+            </tree>
+        </field>
+    </record>
+    <record id="search_view_res_partner_ksc" model="ir.ui.view">
+        <field name="name">search.view.res.partner.ksc</field>
+        <field name="model">res.partner.ksc</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="name"/>
+                <field name="country_id"/>
+                <field name="state_id"/>
+                <field name="zip_code"/>
+                <field name="email"/>
+                <filter string="Active" name="active" domain="[('active', '=', True)]"/>
+                <filter string="Inactive" name="active" domain="[('active', '=', False)]"/>
+                <group expand="0" string="Group By">
+                    <filter string="Country" name="country_id" domain="[]" context="{'group_by' : 'country_id'}"/>
+                    <filter string="State" name="state_id" domain="[]" context="{'group_by' : 'state_id'}"/>
+                    <filter string="City" name="city_id" domain="[]" context="{'group_by' : 'city_id'}"/>
+                </group>
+            </search>
+        </field>
+    </record>
+    <record id="action_res_partner_ksc" model="ir.actions.act_window">
+        <field name="name">Customer</field>
+        <field name="res_model">res.partner.ksc</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="view_mode">tree,form</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">Empty!!!</p>
+        </field>
+    </record>
+    <menuitem id="menu_ksc_res_partner"
+              parent="menu_product_ksc"
+              action="action_res_partner_ksc"
+              name="Customer"/>
+</odoo>
+
+

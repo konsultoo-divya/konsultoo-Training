@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <record id="crm_lead_line_ksc_tree_view" model="ir.ui.view">
+        <field name="name">crm.lead.line.ksc.tree.view</field>
+        <field name="model">crm.lead.line.ksc</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="product_id"/>
+                <field name="name"/>
+                <field name="expected_sell_qty"/>
+                <field name="uom_id"/>
+                <field name="crm_lead_id"/>
+            </tree>
+        </field>
+    </record>
+    <record id="crm_lead_line_ksc_form_view" model="ir.ui.view">
+        <field name="name">crm.lead.ksc.form.view</field>
+        <field name="model">crm.lead.line.ksc</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <field name="product_id"/>
+                        <field name="name"/>
+                        <field name="expected_sell_qty"/>
+                        <field name="uom_id"/>
+                        <field name="crm_lead_id"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+    <record id="crm_lead_line_ksc_search_view" model="ir.ui.view">
+        <field name="name">crm.lead.line.ksc.search.view</field>
+        <field name="model">crm.lead.line.ksc</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="name"/>
+            </search>
+        </field>
+    </record>
+    <record id="action_crm_lead_line_ksc" model="ir.actions.act_window">
+        <field name="name">CRM LEAD LINE KSC</field>
+        <field name="res_model">crm.lead.line.ksc</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="view_mode">tree,form</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">Empty!!!xyz!!!!!!</p>
+        </field>
+    </record>
+    <menuitem id="menu_ksc_crm_lead" parent="menu_CRM" action="action_crm_lead_ksc" name="KSC CRM LEAD Line"/>
+</odoo>

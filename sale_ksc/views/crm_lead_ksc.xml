@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <record id="crm_lead_ksc_tree_view" model="ir.ui.view">
+        <field name="name">crm.lead.ksc.tree.view</field>
+        <field name="model">crm.lead.ksc</field>
+        <field name="arch" type="xml">
+            <tree string="CRM Lead" decoration-success="state == 'won'" decoration-info="state=='Proposition'"
+                  decoration-danger="state=='Lost'">
+                <field name="state"/>
+                <field name="customer_name"/>
+                <field name="customer_email"/>
+                <field name="customer_phone"/>
+                <field name="expected_revenue"/>
+                <field name="sales_person"/>
+                <field name="sales_team"/>
+                <field name="campaign"/>
+                <field name="channel"/>
+                <field name="won_date"
+                       attrs="{'invisible' : [('state', '!=', 'Won')], 'required': [('state', '=', 'Won')]}"/>
+                <field name="lost_date"
+                       attrs="{'invisible' : [('state', '!=', 'Lost')], 'required': [('state', '=', 'Lost')]}"/>
+                <field name="partner_id"/>
+                <field name="order_ids"/>
+                <field name="lead_line_ids"/>
+            </tree>
+        </field>
+    </record>
+    <record id="crm_lead_ksc_form_view" model="ir.ui.view">
+        <field name="name">crm.lead.ksc.form.view</field>
+        <field name="model">crm.lead.ksc</field>
+        <field name="arch" type="xml">
+            <form>
+                <header>
+                    <button name="action_lead_won" string="WON" type="object"
+                            attrs="{'invisible': [('state', 'in', ['won'])]}"/>
+                    <button name="action_lead_lost" string="LOST" type="object"
+                            attrs="{'invisible' : [('state', 'in', ['lost'])]}"/>
+                    <field name="state" widget="statusbar" options="{'clickable': '1'}"
+                           statusbar_visible="new,qualified,proposition"/>
+                </header>
+                <sheet>
+                    <group>
+                        <field name="customer_name"/>
+                        <field name="customer_email"/>
+                        <field name="customer_phone"/>
+                        <field name="expected_revenue"/>
+                        <field name="sales_person"/>
+                        <field name="sales_team"/>
+                        <field name="campaign"/>
+                        <field name="channel"/>
+                        <field name="won_date"/>
+                        <field name="lost_date"/>
+                        <field name="won_date"
+                               attrs="{'invisible' : [('state', '!=', 'Won')], 'required': [('state', '=', 'Won')]}"/>
+                        <field name="lost_date"
+                               attrs="{'invisible' : [('state', '!=', 'Lost')], 'required': [('state', '=', 'Lost')]}"/>
+                        <field name="partner_id"/>
+                    </group>
+                    <notebook>
+                        <page string="Orders">
+                            <field name="order_ids"/>
+                        </page>
+                        <page string="Lead Lines">
+                            <field name="lead_line_ids" editable="bottom"/>
+                        </page>
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+    <record id="crm_lead_ksc_search_view" model="ir.ui.view">
+        <field name="name">crm.lead.ksc.search.view</field>
+        <field name="model">crm.lead.ksc</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="customer_name"/>
+                <field name="customer_email"/>
+                <field name="customer_phone"/>
+                <group expand="0" string="Group by">
+                    <filter string="Channel" name="channel" domain="[]" context="{'group_by': 'channel'}"/>
+                </group>
+            </search>
+        </field>
+    </record>
+    <record id="action_crm_lead_ksc" model="ir.actions.act_window">
+        <field name="name">CRM LEAD KSC</field>
+        <field name="res_model">crm.lead.ksc</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="view_mode">tree,form</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">Empty!!!!!!!!!</p>
+        </field>
+    </record>
+    <menuitem id="menu_ksc_crm_lead_data" parent="menu_CRM" action="action_crm_lead_ksc" name="KSC CRM LEAD"/>
+</odoo>

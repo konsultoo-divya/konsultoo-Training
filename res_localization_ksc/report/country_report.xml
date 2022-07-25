@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="action_report_country" model="ir.actions.report">
+            <field name="name">Country Report</field>
+<!--            model name je module ma change krie tenu name nivhe ref ma apie te model nu name lakhvu -->
+            <field name="model">res.country.ksc</field>
+            <field name="report_type">qweb-pdf</field>
+            <field name="report_name">res_localization_ksc.report_country</field>
+<!--            template id action module name.template ma niche je id apie te ahi apvani-->
+            <field name="report_file">res_localization_ksc.report_country</field>
+<!--            <field name="print_report_name">(object.state in ('draft', 'sent') and 'Quotation - %s' % (object.name)) or 'Order - %s' % (object.name)</field>-->
+            <field name="binding_model_id" ref="model_res_country_ksc"/>
+            <field name="binding_type">report</field>
+        </record>
+    </data>
+</odoo>
+<!--Requirement - 20 Generate a Qweb report for showing the country name and country code-->

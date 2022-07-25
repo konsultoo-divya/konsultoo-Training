@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <record id="form_view_stock_move_ksc" model="ir.ui.view">
+        <field name="name">form.view.stock.move.ksc</field>
+        <field name="model">stock.move.ksc</field>
+        <field name="arch" type="xml">
+            <form>
+                <header>
+                    <field name="state" widget="statusbar" options="{'clickable':1}"/>
+                </header>
+                <sheet>
+                    <group>
+                        <field name="name"/>
+                        <field name="product_id"/>
+                        <field name="state"/>
+                        <field name="uom_id"/>
+                        <field name="source_location_id"/>
+                        <field name="destination_location_id"/>
+                        <field name="qty_to_deliver"/>
+                        <field name="qty_delivered"/>
+                        <field name="sale_line_id"/>
+                        <field name="purchase_line_id"/>
+                        <field name="stock_inventory_id"/>
+                        <field name="picking_id"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+    <record id="tree_view_stock_move_ksc" model="ir.ui.view">
+        <field name="name">tree.view.stock.move.ksc</field>
+        <field name="model">stock.move.ksc</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name"/>
+                <field name="product_id"/>
+                <field name="state"/>
+                <field name="uom_id"/>
+                <field name="source_location_id"/>
+                <field name="destination_location_id"/>
+                <field name="qty_to_deliver"/>
+                <field name="qty_delivered"/>
+                <field name="sale_line_id"/>
+                <field name="purchase_line_id"/>
+                <field name="stock_inventory_id"/>
+                <field name="picking_id"/>
+            </tree>
+        </field>
+    </record>
+    <record id="search_view_stock_move_ksc" model="ir.ui.view">
+        <field name="name">search.view.stock.move.ksc</field>
+        <field name="model">stock.move.ksc</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="name"/>
+                <field name="product_id"/>
+                <field name="state"/>
+                <field name="uom_id"/>
+                <field name="source_location_id"/>
+                <field name="destination_location_id"/>
+                <field name="qty_to_deliver"/>
+                <field name="qty_delivered"/>
+                <field name="sale_line_id"/>
+                <field name="purchase_line_id"/>
+                <field name="stock_inventory_id"/>
+                <field name="picking_id"/>
+            </search>
+        </field>
+    </record>
+    <record id="action_stock_move_ksc" model="ir.actions.act_window">
+        <field name="name">Stock Moves Ksc</field>
+        <field name="res_model">stock.move.ksc</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="view_mode">tree,form</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">Empty!!!</p>
+        </field>
+    </record>
+    <menuitem id="menu_sale_sales_ksc_move" parent="menu_CRM" name="Sale Move"/>
+    <menuitem id="ksc_stock_move_sale"
+              parent="menu_sale_sales_ksc_move"
+              action="action_stock_move_ksc"
+              name="Stock Moves"/>
+</odoo>

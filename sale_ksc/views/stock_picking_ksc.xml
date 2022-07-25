@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <record id="form_view_stock_picking_ksc" model="ir.ui.view">
+        <field name="name">form.view.stock.picking.ksc</field>
+        <field name="model">stock.picking.ksc</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <!--                  requirement 11:  Add button-box at the top right corner of the screen for Stock move-->
+                    <div class="oe_button_box" name="button_box">
+                        <button name="action_view_moving" type="object"
+                                class="oe_stat_button" icon="fa-star">
+                            <field name="stock_move_count" class="o_stat_value"/>
+                            <span class="o_stat_text">Stock Move Count</span>
+                        </button>
+                    </div>
+                    <group>
+                        <field name="name"/>
+                        <field name="partner_id"/>
+                        <field name="state"/>
+                        <field name="purchase_order_id"/>
+                        <field name="transaction_type"/>
+                        <field name="move_ids"/>
+                        <field name="transaction_date"/>
+                        <field name="parent_picking_id"/>
+                    </group>
+                    <notebook>
+                        <page string="Stock Moves" mode="tree">
+                            <field name="move_ids">
+                                <tree string="Stock Moves">
+                                    <field name="name"/>
+                                    <field name="product_id"/>
+                                    <field name="qty_to_deliver"/>
+                                    <field name="qty_delivered"/>
+                                    <field name="state"/>
+                                    <field name="sale_line_id"/>
+                                </tree>
+                            </field>
+                        </page>
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+    <record id="tree_view_stock_picking_ksc" model="ir.ui.view">
+        <field name="name">tree.view.stock.picking.ksc</field>
+        <field name="model">stock.picking.ksc</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name"/>
+                <field name="partner_id"/>
+                <field name="state"/>
+                <field name="purchase_order_id"/>
+                <field name="transaction_type"/>
+                <field name="move_ids"/>
+                <field name="transaction_date"/>
+                <field name="parent_picking_id"/>
+            </tree>
+        </field>
+    </record>
+    <record id="search_view_stock_picking_ksc" model="ir.ui.view">
+        <field name="name">search.view.stock.picking.ksc</field>
+        <field name="model">stock.picking.ksc</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="name"/>
+                <field name="partner_id"/>
+                <field name="state"/>
+                <field name="purchase_order_id"/>
+                <field name="transaction_type"/>
+                <field name="move_ids"/>
+                <field name="transaction_date"/>
+            </search>
+        </field>
+    </record>
+    <record id="action_stock_picking_ksc" model="ir.actions.act_window">
+        <field name="name">Stock Picking Ksc</field>
+        <field name="res_model">stock.picking.ksc</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="view_mode">tree,form</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">Empty!!!</p>
+        </field>
+    </record>
+    <menuitem id="menu_sale_sales_ksc_pick" parent="menu_CRM" name="Sale picking"/>
+    <menuitem id="memu_stock_picking_ksc"
+              parent="menu_sale_sales_ksc_pick"
+              action="action_stock_picking_ksc"
+              name="Stock Pickings"/>
+</odoo>

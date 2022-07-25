@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <record id="form_view_sale_order_ksc" model="ir.ui.view">
+        <field name="name">form.view.sale.order.ksc</field>
+        <field name="model">sale.order.ksc</field>
+        <field name="arch" type="xml">
+            <form>
+                <header>
+                    <field name="state" widget="statusbar" options="{'clickable': '1'}"/>
+                    <button name="action_confirm_order" type="object" string="Confirm"
+                            attrs="{'invisible':[('state','=','confirmed')]}"/>
+                </header>
+                <!-- Requirement 11../  Add button-box at the top right corner of the screen for Delivery order-->
+                <div class="oe_button_box" name="button_box">
+                    <button name="action_view_delivery" type="object"
+                            class="oe_stat_button" icon="fa-star">
+                        <field name="delivery_count" class="o_stat_value"/>
+                        <span class="o_stat_text">Total Delivery Count</span>
+                    </button>
+                </div>
+
+                <group>
+                    <group>
+                        <field name="order_number"/>
+                        <field name="customer_id"/>
+                        <field name="invoice_customer_id"/>
+                        <field name="shipping_customer_id"/>
+                        <field name="sale_order_date"/>
+                        <field name="salesperson_id"/>
+                    </group>
+                    <group>
+                        <field name="total_weight"/>
+                        <field name="lead_id"/>
+                        <field name="warehouse_id"/>
+                        <field name="total_tax"/>
+                        <field name="total_amount"/>
+                        <!--                        <field name="order_total"/>-->
+                    </group>
+                </group>
+                <notebook>
+                    <page string="picking_ids" name="picking_ids">
+                        <field name="picking_ids"/>
+                    </page>
+                    <page string="Order Line" name="order_line">
+                        <field name="order_line_ids">
+                            <tree String="Sale Orer Line" editable="bottom">
+                                <field name="subtotal"/>
+                                <field name="tax_ids"/>
+                            </tree>
+                        </field>
+                        <group name="note_group" col="6" class="mt-2 mt-md-0">
+                            <group class="oe_subtotal_footer oe_right" colspan="2" name="sale_total">
+                                <field name="amount_untaxed" widget="monetary"
+                                       options="{'currency_field' : 'currency_id'}"/>
+                                <field name="total_tax" widget="monetary"
+                                       options="{'currency_field' : 'currency_id'}"/>
+                            </group>
+                        </group>
+                    </page>
+                </notebook>
+            </form>
+        </field>
+    </record>
+    <record id="tree_view_sale_order_ksc" model="ir.ui.view">
+        <field name="name">tree.view.sale.order.ksc</field>
+        <field name="model">sale.order.ksc</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="order_number"/>
+                <field name="customer_id"/>
+                <field name="invoice_customer_id"/>
+                <field name="shipping_customer_id"/>
+                <field name="sale_order_date"/>
+                <field name="salesperson_id"/>
+                <field name="state"/>
+                <field name="total_weight"/>
+                <field name="lead_id"/>
+                <field name="warehouse_id"/>
+                <field name="picking_ids"/>
+                <field name="total_tax"/>
+                <field name="total_amount"/>
+            </tree>
+        </field>
+    </record>
+    <record id="search_view_sale_order_ksc" model="ir.ui.view">
+        <field name="name">search.view.sale.order.ksc</field>
+        <field name="model">sale.order.ksc</field>
+        <field name="arch" type="xml">
+            <search>
+                <!--                <field name="order_number"/>-->
+                <!--                <field name="customer_id"/>-->
+                <field name="sale_order_date"/>
+            </search>
+        </field>
+    </record>
+    <record id="action_sale_order_ksc" model="ir.actions.act_window">
+        <field name="name">Sale Order KSC</field>
+        <field name="res_model">sale.order.ksc</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="view_mode">tree,form</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">Empty!!!</p>
+        </field>
+    </record>
+    <menuitem id="menu_sale_order_ksc"
+              parent="menu_product_ksc"
+              action="action_sale_order_ksc"
+              name="Orders"/>
+</odoo>

@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id="report_country_document">
+        <t t-call="web.external_layout">
+            <div style="border: 1px solid black;">
+
+            <div class="page">
+                <div class="oe_structure"/>
+
+                <h1 class="mt16">Country's Information</h1>
+            </div>
+            <div class="row mt32 mb32" id="res_localization_ksc">
+                <div t-if="doc.name_of_the_country" class="col-auto col-3 mw-100 mb-2">
+                    <strong>Name:</strong>
+                    <p class="m-0" t-field="doc.name_of_the_country"/>
+                </div>
+                <div t-if="doc.short_code_of_the_country" class="col-auto col-3 mw-100 mb-2">
+                    <strong>short code of the country:</strong>
+                    <p class="m-0" t-field="doc.short_code_of_the_country"/>
+                </div>
+            </div>
+            </div>
+        </t>
+
+        <!--        <div name="Country Name" class="float-right mb4">-->
+        <!--            Country Name:-->
+        <!--            <span t-if="doc.name_of_the_country" t-field="doc.name_of_the_country"/>-->
+        <!--        </div>-->
+        <!--        <div name="Country Code" class="float-right mb4">-->
+        <!--            Country Code:-->
+        <!--            <span t-if="doc.short_code_of_the_country" t-field="doc.short_code_of_the_country"/>-->
+        <!--        </div>-->
+
+    </template>
+
+    <template id="report_country">
+        <t t-call="web.html_container">
+            <t t-foreach="docs" t-as="doc">
+                <t t-call="res_localization_ksc.report_country_document" t-lang="lang"/>
+                <!--                upr je id apie te niche pass karvani module name.upr vadi id -->
+            </t>
+        </t>
+    </template>
+</odoo>
+
+
+
+

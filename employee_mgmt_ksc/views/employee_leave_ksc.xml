@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <record id="employee_leave_ksc_view_tree" model="ir.ui.view">
+        <field name="name">Employee Leave ksc List</field>
+        <field name="model">employee.leave.ksc</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="employee_id"/>
+                <field name="department_id"/>
+                <field name="start_date"/>
+                <field name="end_date"/>
+                <field name="status"/>
+                <field name="leave_description"/>
+            </tree>
+        </field>
+    </record>
+    <record id="employee_leave_ksc_view_form" model="ir.ui.view">
+        <field name="name">Employee Leave ksc form</field>
+        <field name="model">employee.leave.ksc</field>
+        <field name="arch" type="xml">
+            <form string="Employee Leave Form">
+                <sheet>
+                    <group string="Employee Leave Ksc Data">
+                        <field name="employee_id"/>
+                        <field name="department_id"/>
+                        <field name="start_date"/>
+                        <field name="end_date"/>
+                        <field name="status"/>
+                        <field name="leave_description"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="employees_leave_ksc_view_search" model="ir.ui.view">
+        <field name="name">Employee Leave ksc search</field>
+        <field name="model">employee.leave.ksc</field>
+        <field name="arch" type="xml">
+            <search>
+                <filter string="employee.ksc,5" name="employee_id_" domain="[('employee_id', '=', 'employee.ksc,5')]"/>
+                <filter string="employee.department.ksc,4" name="department_id_"
+                        domain="[('department_id', '=', 'employee.department.ksc,4')]"/>
+                <group expand="0" string="Group By">
+                    <filter string="employee_id" name="employee_id_group" context="{'group_by': 'employee_id'}"/>
+                </group>
+            </search>
+        </field>
+    </record>
+
+    <record id='employee_leave_ksc_action' model='ir.actions.act_window'>
+        <field name="name">Employee Leave ksc Action</field>
+        <field name="res_model">employee.leave.ksc</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+
+    <menuitem name="Leaves"
+              id="leaves_root_data_menu"
+              parent="department_ksc_menu"
+              groups="base.group_user"/>
+
+    <menuitem name="HR"
+              id="hr_data1_menu"
+              parent="leaves_root_data_menu"
+              groups="base.group_user"/>
+
+    <menuitem name="Employees"
+              id="Employees_leave_menu"
+              parent="hr_data1_menu"
+              action="employee_leave_ksc_action"
+              sequence="5"
+              groups="base.group_user"/>
+
+</odoo>

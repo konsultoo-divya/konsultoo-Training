@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <record id="form_view_ksc_product_uom_category" model="ir.ui.view">
+        <field name="name">form.view.product.ksc.uom.category</field>
+        <field name="model">product.uom.category.ksc</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <field name="name"/>
+                        <field name="uom_ids"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+    <record id="tree_view_ksc_product_uom_category" model="ir.ui.view">
+        <field name="name">tree.view.product.ksc.uom.category</field>
+        <field name="model">product.uom.category.ksc</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name"/>
+                <field name="uom_ids"/>
+            </tree>
+        </field>
+    </record>
+    <record id="search_view_ksc_product_uom_category" model="ir.ui.view">
+        <field name="name">search.view.product.ksc.uom.category</field>
+        <field name="model">product.uom.category.ksc</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="name"/>
+            </search>
+        </field>
+    </record>
+    <record id="action_product_ksc_uom_category" model="ir.actions.act_window">
+        <field name="name">Ksc Product UOM Category</field>
+        <field name="res_model">product.uom.category.ksc</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="view_mode">tree,form</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">Empty!!!</p>
+        </field>
+    </record>
+
+    <menuitem id="menu_product_ksc_uom_category"
+              parent="menu_product_ksc"
+              action="action_product_ksc_uom_category"
+              name=" Product Ksc UOM Category"/>
+</odoo>

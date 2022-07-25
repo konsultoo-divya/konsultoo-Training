@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <record id="employee_department_shift_ksc_view_tree" model="ir.ui.view">
+        <field name="name">Employee Department Shift ksc List</field>
+        <field name="model">employee.department.shift.ksc</field>
+        <field name="arch" type="xml">
+            <tree editable="bottom">
+                <field name="shift"/>
+                <field name="employee_ids"/>
+            </tree>
+        </field>
+    </record>
+    <record id="employee_department_shift_ksc_view_search" model="ir.ui.view">
+        <field name="name">Employee Department Shift ksc search</field>
+        <field name="model">employee.department.shift.ksc</field>
+        <field name="arch" type="xml">
+            <search>
+                <filter name="shift Morning" string="Morning" domain="[('shift', '=', 'morning')]"/>
+                <filter name="shift_Afternoon" string="Afternoon" domain="[('shift', '=', 'afternoon')]"/>
+                <filter name="shift_Evening" string="Evening" domain="[('shift', '=', 'evening')]"/>
+                <filter name="shift_Night" string="Night" domain="[('shift', '=', 'night')]"/>
+            </search>
+        </field>
+    </record>
+
+    <record id='employees_department_shift_ksc_action' model='ir.actions.act_window'>
+        <field name="name">Employee Department Shift ksc Action</field>
+        <field name="res_model">employee.department.shift.ksc</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <menuitem name="Employee Shifts"
+              id="employee_shift12_root_data_menu"
+              parent="department_ksc_menu"/>
+
+    <menuitem name="HR"
+              id="employee_shift_data_menu"
+              parent="employee_shift12_root_data_menu"/>
+
+    <menuitem name="EmployeeS"
+              id="Employees_menu1"
+              parent="employee_shift_data_menu"
+              action="employees_department_shift_ksc_action"
+              sequence="4"/>
+</odoo>

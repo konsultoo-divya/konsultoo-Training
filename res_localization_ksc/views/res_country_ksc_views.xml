@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <record id="res_country_ksc_view_tree_inherit" model="ir.ui.view">
+        <field name="name">res.country.tree.inherit</field>
+        <field name="model">res.country.ksc</field>
+        <field name="inherit_id" ref="res_country_ksc.res_country_ksc_view_tree"/>
+        <field name="arch" type="xml">
+            <field name="active" position="after">
+                <field name="state_ids"/>
+            </field>
+        </field>
+    </record>
+    <record id="res_country_ksc_view_form_inherit" model="ir.ui.view">
+        <field name="name">res.country.form.inherit</field>
+        <field name="model">res.country.ksc</field>
+        <field name="inherit_id" ref="res_country_ksc.res_country_ksc_view_form"/>
+        <field name="arch" type="xml">
+            <field name="active" position="after">
+                <field name="state_ids"/>
+            </field>
+        </field>
+    </record>
+
+    <record id='res_country_ksc_inherit_action' model='ir.actions.act_window'>
+        <field name="name">Res Country Ksc Inherit Action</field>
+        <field name="res_model">res.country.ksc</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+
+<menuitem name="Res localization Ksc"
+          id="res_localization_country_ksc_menus"
+          groups="base.group_user"/>
+
+<menuitem name= "Res localization Country Ksc"
+          id="res_country_data_menu"
+          parent="res_localization_country_ksc_menus"
+          groups="base.group_user"/>
+
+<menuitem name="Country Localization"
+          id="Res_Country_localization_menu"
+          parent="res_country_data_menu"
+          action="res_country_ksc_inherit_action"
+          sequence="10"
+          groups="base.group_user"/>
+</odoo>
+
+

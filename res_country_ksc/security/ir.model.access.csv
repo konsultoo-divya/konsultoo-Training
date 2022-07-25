@@ -1,0 +1,3 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+new_odoo_res_country_ksc.access_res_country_ksc,access_res_country_ksc,res_country_ksc.model_res_country_ksc,base.group_user,1,1,1,1
+

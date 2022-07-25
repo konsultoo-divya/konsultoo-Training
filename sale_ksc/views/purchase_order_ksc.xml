@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <record id="form_view_purchase_order_ksc" model="ir.ui.view">
+        <field name="name">form.view.purchase.order.ksc</field>
+        <field name="model">purchase.order.ksc</field>
+        <field name="arch" type="xml">
+            <form>
+                <header>
+                    <button name="action_confirm_order" string="CONFIRMED" type="object"
+                            attrs="{'invisible': [('state', 'in', ['confirmed'])]}"/>
+                </header>
+                <sheet>
+                    <group>
+                        <field name="order_number"/>
+                        <field name="warehouse_id"/>
+                        <field name="partner_id"/>
+                        <field name="vendor_reference"/>
+                        <field name="order_deadline"/>
+                        <field name="receipt_date"/>
+                        <field name="state"/>
+                        <field name="total_weight"/>
+                        <field name="order_total"/>
+                    </group>
+                    <notebook>
+                        <page string="PurchaseOrderLine">
+                            <field name="purchase_line_ids" editable="bottom"/>
+                        </page>
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="tree_view_purchase_order_ksc" model="ir.ui.view">
+        <field name="name">tree.view.purchase.order.ksc</field>
+        <field name="model">purchase.order.ksc</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="order_number"/>
+                <field name="warehouse_id"/>
+            </tree>
+        </field>
+    </record>
+    <record id="search_view_purchase_order_ksc" model="ir.ui.view">
+        <field name="name">search.view.purchase.order.ksc</field>
+        <field name="model">purchase.order.ksc</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="order_number"/>
+                <field name="warehouse_id"/>
+                <field name="partner_id"/>
+                <field name="vendor_reference"/>
+                <field name="order_deadline"/>
+                <field name="receipt_date"/>
+                <field name="purchase_line_ids"/>
+                <field name="state"/>
+            </search>
+        </field>
+    </record>
+    <record id="action_purchase_order_ksc" model="ir.actions.act_window">
+        <field name="name">purchase order ksc</field>
+        <field name="res_model">purchase.order.ksc</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="view_mode">tree,form</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">Empty!!!</p>
+        </field>
+    </record>
+
+    <menuitem id="menu_purchase_order_ksc"
+              parent="menu_CRM"
+              name="Purchase"/>
+    <menuitem id="purchase_menu_ksc_menus"
+              parent="menu_purchase_order_ksc"
+              action="action_purchase_order_ksc"
+              name="Purchase Order"/>
+</odoo>

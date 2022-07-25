@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <record id="res_state_ksc_view_tree_inherit" model="ir.ui.view">
+        <field name="name">res.state.tree.inherit</field>
+        <field name="model">res.state.ksc</field>
+        <field name="inherit_id" ref="res_state_ksc.res_state_ksc_view_tree"/>
+        <field name="arch" type="xml">
+            <field name="active" position="after">
+                <field name="city_ids"/>
+            </field>
+        </field>
+    </record>
+    <record id="res_state_ksc_view_form_inherit" model="ir.ui.view">
+        <field name="name">res.state.form.inherit</field>
+        <field name="model">res.state.ksc</field>
+        <field name="inherit_id" ref="res_state_ksc.res_state_ksc_view_form"/>
+        <field name="arch" type="xml">
+            <field name="active" position="after">
+                <field name="city_ids"/>
+            </field>
+        </field>
+    </record>
+
+    <record id="res_state_ksc_view_search" model="ir.ui.view">
+        <field name="name">Res State Ksc search</field>
+        <field name="model">res.state.ksc</field>
+        <field name="arch" type="xml">
+            <search>
+                <group expand="0" string="Group By">
+                    <filter string="State" name="state_by_group" context="{'group_by': 'name_of_the_state'}"/>
+                </group>
+            </search>
+        </field>
+    </record>
+
+    <record id='res_state_ksc_inherit_action' model='ir.actions.act_window'>
+        <field name="name">Res State Ksc Inherit Action</field>
+        <field name="res_model">res.state.ksc</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+    <menuitem name="Res localization Ksc"
+              id="res_localization_country_ksc_menus"
+              groups="base.group_user"/>
+    <menuitem name="Res localization State Ksc1"
+              id="res_state_data_menu1"
+              parent="res_localization_country_ksc_menus"
+              groups="base.group_user"/>
+    <menuitem name="State Localization"
+              id="Res_State_localization_menu"
+              parent="res_state_data_menu1"
+              action="res_state_ksc_inherit_action"
+              groups="base.group_user"/>
+
+</odoo>
+

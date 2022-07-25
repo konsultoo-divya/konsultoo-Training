@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <record id="form_view_stock_warehouse_ksc" model="ir.ui.view">
+        <field name="name">form.view.ksc.stock.warehouse</field>
+        <field name="model">stock.warehouse.ksc</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <field name="name"/>
+                        <field name="short_code"/>
+                        <field name="address_id"/>
+                        <field name="stock_location_id"/>
+                        <field name="view_location_id"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+    <record id="tree_view_stock_warehouse_ksc" model="ir.ui.view">
+        <field name="name">tree.view.stock.warehouse.ksc</field>
+        <field name="model">stock.warehouse.ksc</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name"/>
+                <field name="short_code"/>
+                <field name="address_id"/>
+                <field name="stock_location_id"/>
+                <field name="view_location_id"/>
+            </tree>
+        </field>
+    </record>
+    <record id="search_view_stock_warehouse_ksc" model="ir.ui.view">
+        <field name="name">search.view.stock.warehouse.ksc</field>
+        <field name="model">stock.warehouse.ksc</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="name"/>
+                <field name="short_code"/>
+                <field name="address_id"/>
+                <field name="stock_location_id"/>
+                <field name="view_location_id"/>
+            </search>
+        </field>
+    </record>
+    <record id="action_stock_warehouse_ksc" model="ir.actions.act_window">
+        <field name="name">Stock Warehouse Ksc</field>
+        <field name="res_model">stock.warehouse.ksc</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="view_mode">tree,form</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">Empty!!!</p>
+        </field>
+    </record>
+    <menuitem id="menu_ksc_sale_sales_data"
+              parent="menu_CRM"
+              name="Sale Stock Warehouse"/>
+
+    <menuitem id="memu_ksc_stock_warehouse_data"
+              parent="menu_ksc_sale_sales_data"
+              action="action_stock_warehouse_ksc"
+              name="Stock Warehouses"/>
+</odoo>
